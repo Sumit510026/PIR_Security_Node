@@ -1,0 +1,22 @@
+Release/
+└── FW_V1.0.0/
+    ├── firmware.hex
+    ├── firmware.elf
+    ├── Release_Notes.pdf
+    ├── Test_Report.pdf
+    └── Checksums.txt
+
+
+
+Firmware: PIR Security Node
+Version: 1.0.0
+Date: 20-Aug-2026
+
+Features:
+- PIR motion detection
+- Buzzer alarm
+- Arm/Disarm
+- UART diagnostics
+
+Known Issues:
+- None
