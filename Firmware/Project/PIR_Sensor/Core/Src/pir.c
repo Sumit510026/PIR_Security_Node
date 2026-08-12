@@ -11,7 +11,7 @@ void PIR_Init(void)
 {
 RCC->APB2ENR |= (1 << 2);
 GPIOA->CRL  &= ~(0xfU << 0);
-GPIOA->CRL  |=  (0x4U << 0);
+GPIOA->CRL  |=  (0x8U << 0);
 }
 
 bool PIR_IsMotionDetected(void)
