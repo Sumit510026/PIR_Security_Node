@@ -1,0 +1,2 @@
+../Core/Src/pir.c:10:6:PIR_Init	4	static
+../Core/Src/pir.c:17:6:PIR_IsMotionDetected	4	static

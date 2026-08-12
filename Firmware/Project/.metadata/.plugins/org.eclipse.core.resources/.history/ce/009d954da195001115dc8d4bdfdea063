@@ -1,0 +1,23 @@
+/*
+ * pir.c
+ *
+ *  Created on: Aug 11, 2026
+ *      Author: sumit
+ */
+#include"stm32f1xx.h"
+#include"stdbool.h"
+
+void Init(){
+RCC->APB2ENR |= (1 << 2);
+GPIOA->CRL  &= ~(0xf << 0);
+GPIOA->CRL  |=  (0x8 << 0);
+}
+
+bool PIR_IsMotionDetected(){
+bool state;
+state = GPIOA->IDR & (1 << 0);
+return state;
+}
+
+
+

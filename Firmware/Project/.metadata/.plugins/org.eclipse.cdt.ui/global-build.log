@@ -1,0 +1,28 @@
+11:44:39 **** Incremental Build of configuration Debug for project PIR_Sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/pir.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/pir.d" -MT"Core/Src/pir.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/pir.o"
+arm-none-eabi-gcc -o "PIR_Sensor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Embedded_work\PROJECTS\PIR_Security_Node\Firmware\Project\PIR_Sensor\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PIR_Sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PIR_Sensor.elf
+ 
+arm-none-eabi-size  PIR_Sensor.elf 
+arm-none-eabi-objdump -h -S PIR_Sensor.elf  > "PIR_Sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+    924	      4	   1572	   2500	    9c4	PIR_Sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: PIR_Sensor.list
+ 
+11:44:50 **** Incremental Build of configuration Debug for project PIR_Sensor ****
+make -j8 all 
+arm-none-eabi-size  PIR_Sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+    924	      4	   1572	   2500	    9c4	PIR_Sensor.elf
+Finished building: default.size.stdout
+ 
+11:45:31 **** Incremental Build of configuration Debug for project PIR_Sensor ****
+make -j8 all 
+arm-none-eabi-size  PIR_Sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+    924	      4	   1572	   2500	    9c4	PIR_Sensor.elf
+Finished building: default.size.stdout
+ 

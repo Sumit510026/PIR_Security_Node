@@ -1,0 +1,32 @@
+/*
+ * LED.c
+ *
+ *  Created on: Aug 11, 2026
+ *      Author: sumit
+ */
+
+#include"stm32f1xx.h"
+#include"LED.h"
+
+void LED_Init(void)
+{
+	RCC->APB2ENR |=  (1U << 4);
+	GPIOC->CRH   &= ~(0xFU << 20);
+	GPIOC->CRH   |=  (2U << 20);
+	GPIOC->ODR 	 |=  (1U << 13); 		//Set_LED_OFF_condition
+}
+
+void LED_Off(void)
+{
+	GPIOC->ODR 	|= (1U << 13);
+}
+
+void LED_On(void)
+{
+	GPIOC->ODR &= ~(1U << 13);
+}
+
+void LED_Toggle(void)
+{
+	 GPIOC->ODR ^= (1U << 13);
+}

@@ -1,0 +1,22 @@
+#include"stm32f1xx.h"
+#include"pir.h"
+#include"LED.h"
+
+
+int main(){
+	LED_Init();
+	PIR_Init();
+while(1)
+{
+	if(PIR_IsMotionDetected())
+	{
+		LED_On();
+	}
+	else
+	{
+		LED_Off();
+	}
+}
+
+return 0;
+}
