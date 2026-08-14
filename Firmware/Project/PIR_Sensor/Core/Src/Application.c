@@ -6,22 +6,64 @@
  */
 #include"pir.h"
 #include"LED.h"
+#include"Button.h"
+#include"Application.h"
+#include"Timer.h"
+
+static SystemState_t systemState = SYSTEM_DISARMED;
+
 
 void Application_Init(void)
 {
 	LED_Init();
 	PIR_Init();
+	Button_Init();
+	Timer_Init();
 }
 
 void Application_Run(void)
 {
-	if(PIR_IsMotionDetected())
+	static bool PreviousButtonState = false;
+
+	bool CurrentButtonState = Button_IsPressed();
+
+
+	if (CurrentButtonState && !PreviousButtonState)
 	{
-		LED_On();
+		Timer_Delay_ms(10);
+		if(Button_IsPressed())
+		{
+			if(systemState == SYSTEM_DISARMED)
+			{
+				systemState = SYSTEM_ARMED;
+			}
+			else
+			{
+				systemState = SYSTEM_DISARMED;
+			}
+		}
+	}
+
+	PreviousButtonState = CurrentButtonState ;
+
+
+
+	if(systemState == SYSTEM_ARMED)
+	{
+		if(PIR_IsMotionDetected())
+		{
+			LED_On();
+		}
+		else
+		{
+			LED_Off();
+		}
 	}
 	else
 	{
 		LED_Off();
 	}
+
+
 }
 

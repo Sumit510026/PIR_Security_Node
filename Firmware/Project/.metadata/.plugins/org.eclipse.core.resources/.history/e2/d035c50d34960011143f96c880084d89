@@ -1,0 +1,24 @@
+/*
+ * Button.h
+ *
+ *  Created on: Aug 12, 2026
+ *      Author: sumit
+ */
+
+#ifndef SRC_BUTTON_H_
+#define SRC_BUTTON_H_
+
+#include"stm32f1xx.h"
+
+void Button_Init(void);
+
+typedef enum
+{
+	SYSTEM_DISARMED,
+	SYSTEM_ARMED
+} AlarmState_t;
+
+
+
+
+#endif /* SRC_BUTTON_H_ */
