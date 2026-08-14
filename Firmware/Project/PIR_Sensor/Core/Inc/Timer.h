@@ -1,0 +1,18 @@
+/*
+ * Timer.h
+ *
+ *  Created on: Aug 13, 2026
+ *      Author: sumit
+ */
+
+#ifndef INC_TIMER_H_
+#define INC_TIMER_H_
+
+#include"stm32f1xx.h"
+
+void Timer_Init(void);
+uint32_t Timer_GetMillis(void);
+
+void Timer_Delay_ms(uint32_t ms);
+
+#endif /* INC_TIMER_H_ */

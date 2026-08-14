@@ -1,0 +1,31 @@
+/*
+ * Application.c
+ *
+ *  Created on: Aug 11, 2026
+ *      Author: sumit
+ */
+#include"pir.h"
+#include"LED.h"
+#include"Application.h"
+
+static SystemState_t systemState = SYSTEM_DISARMED;
+
+void Application_Init(void)
+{
+	LED_Init();
+	PIR_Init();
+}
+
+void Application_Run(void)
+{
+	if()
+	if(PIR_IsMotionDetected())
+	{
+		LED_On();
+	}
+	else
+	{
+		LED_Off();
+	}
+}
+

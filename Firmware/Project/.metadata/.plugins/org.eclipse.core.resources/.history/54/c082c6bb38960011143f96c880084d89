@@ -1,0 +1,21 @@
+/*
+ * Button.c
+ *
+ *  Created on: Aug 12, 2026
+ *      Author: sumit
+ */
+#include"Button.h"
+
+void Button_Init(void)
+{
+	RCC->APB2ENR |= (1U << 2);
+	GPIOA->CRL  &= ~(0xF << 4);
+	GPIOA->CRL  |=  (0x8U << 4);
+	GPIOA->ODR  |=  (1U << 1); // set it as PULL up , if we want pull-down input mode then set it &= ~()
+}
+
+
+bool Button_IsPressed(void)
+{
+ return (GPIOA->IDR & (1U << 1)) == 0U;
+}

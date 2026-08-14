@@ -1,0 +1,57 @@
+/*
+ * Application.c
+ *
+ *  Created on: Aug 11, 2026
+ *      Author: sumit
+ */
+#include"pir.h"
+#include"LED.h"
+#include"Button.h"
+#include"Application.h"
+
+static SystemState_t systemState = SYSTEM_DISARMED;
+
+
+void Application_Init(void)
+{
+	LED_Init();
+	PIR_Init();
+	Button_Init();
+}
+
+void Application_Run(void)
+{
+	static bool ARMED_PreviousButtonState = false;
+
+	bool ARMED_CurrentButtonState = Button_IsPressed();
+
+	if (ARMED_CurrentButtonState && !ARMED_PreviousButtonState)
+	{
+		if(systemState == SYSTEM_DISARMED){
+			systemState = SYSTEM_ARMED;
+		}
+		else
+		{
+			systemState = SYSTEM_DISARMED;
+		}
+	}
+
+	if(systemState == SYSTEM_ARMED)
+	{
+		if(PIR_IsMotionDetected())
+		{
+			LED_On();
+		}
+		else
+		{
+			LED_Off();
+		}
+	}
+	else
+	{
+		LED_Off();
+	}
+
+
+}
+

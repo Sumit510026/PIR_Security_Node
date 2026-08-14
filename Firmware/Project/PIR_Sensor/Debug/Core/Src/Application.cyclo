@@ -1,2 +1,2 @@
-../Core/Src/Application.c:10:6:Application_Init	1
-../Core/Src/Application.c:16:6:Application_Run	2
+../Core/Src/Application.c:16:6:Application_Init	1
+../Core/Src/Application.c:24:6:Application_Run	7

@@ -11,4 +11,10 @@
 void Application_Init(void);
 void Application_Run(void);
 
+typedef enum
+{
+	SYSTEM_DISARMED,
+	SYSTEM_ARMED
+}SystemState_t;
+
 #endif /* INC_APPLICATION_H_ */
